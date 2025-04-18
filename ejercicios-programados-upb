@@ -1,0 +1,150 @@
+/* ejercicio 1: Se quiere guardar los nombres y la edades de los estudiantes de un curso. 
+Realiza un programa que introduzca el nombre y la edad de cada alumno. 
+El proceso de lectura de datos terminará cuando se introduzca como 
+nombre de un estudiante un asterisco (*). Al finalizar se mostrará los 
+siguientes datos: Los estudiantes mayores de edad, cual es la edad 
+promedio de ellos y cuantos estudiantes se registraron
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+import javax.swing.JOptionPane;
+
+public class ejercicios {
+
+    public static void main(String[] args) {
+
+        int cant = 0;
+        cant = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresar cantidad de estudiantes"));
+
+        String[] vNombres = new String[cant];
+        int[] vEdades = new int[cant];
+
+        for (int i = 0; i < cant; i++) {
+            vNombres[i] = JOptionPane.showInputDialog("ingresa el nombre del estudiante" + (i + 1));
+            vEdades[i] = Integer
+                    .parseInt(JOptionPane.showInputDialog("ingresa edad del estudiante" + "ingresa edad" + (i + 1)));
+        }
+
+        boolean flag;
+        for (int i = 0; i < cant; i++) {
+            if (vEdades[i] >= 18) {
+                JOptionPane.showMessageDialog(null, "el estudiante " + vNombres[i] + " es mayor de edad");
+                flag = true;
+            }
+        }
+        if (flag = false) {
+            JOptionPane.showMessageDialog(null, " no tenemos estudiantes mayores ");
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+Ejercicio 2: Se quiere realizar un algoritmo que lea por teclado las 5 notas obtenidas
+por un estudiantes (comprendidas entre 0 y 5). A continuación debe mostrar
+todas las notas, la nota media, la nota más alta que ha sacado y la menor.
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+import java.util.Scanner;
+
+public class ejercicios {
+
+    double nota1, nota2, nota3, nota4, nota5;
+    double acu1, acu2, acu3, acu4, acu5, def;
+
+    Scanner entrada = new Scanner(System.in);
+
+    public void IngreseNotas() {
+        System.out.println("Por favor ingrese las notas del estudiante");
+
+        System.out.println("Ingrese nota 1: ");
+        nota1 = entrada.nextDouble();
+
+        System.out.println("Ingrese nota 2: ");
+        nota2 = entrada.nextDouble();
+
+        System.out.println("Ingrese nota 3: ");
+        nota3 = entrada.nextDouble();
+
+        System.out.println("Ingrese nota 4: ");
+        nota4 = entrada.nextDouble();
+
+        System.out.println("Ingrese nota 5: ");
+        nota5 = entrada.nextDouble();
+    }
+
+    public void CalculoNotas() {
+        acu1 = nota1 * 0.35;
+        acu2 = nota2 * 0.35;
+        acu3 = nota3 * 0.35;
+        acu4 = nota4 * 0.35;
+        acu5 = nota5 * 0.35;
+        def = acu1 + acu2 + acu3 + acu4 + acu5;
+    }
+
+    public void MostrarResultados() {
+        System.out.println("Nota 1: " + nota1);
+        System.out.println("Nota 2: " + nota2);
+        System.out.println("Nota 3: " + nota3);
+        System.out.println("Nota 3: " + nota4);
+        System.out.println("Nota 3: " + nota5);
+        System.out.println("Acumulado nota 1: " + acu1);
+        System.out.println("Acumulado nota 2: " + acu2);
+        System.out.println("Acumulado nota 3: " + acu3);
+        System.out.println("Acumulado nota 2: " + acu4);
+        System.out.println("Acumulado nota 3: " + acu5);
+        System.out.println("Nota definitiva: " + def);
+    }
+
+    public void Mensaje() {
+        if (def >= 3 && def <= 5) {
+            System.out.println("El estudiante aprueba");
+        } else {
+            if (def >= 1.9 && def < 3) {
+                System.out.println("El estudiante habilita");
+            } else {
+                if (def >= 0 && def < 1.9) {
+                    System.out.println("El estudiante reprueba");
+                } else {
+                    System.out.println("Error en las notas ingresadas");
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        NotaDef fc = new NotaDef();
+        fc.IngreseNotas();
+        fc.CalculoNotas();
+        fc.MostrarResultados();
+        fc.Mensaje();
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*ejercicio 6: Realizar un algoritmo que permita crear un vector con N posiciones y
+permita almacer valores aleatorios desde el programa. Debe mostrar el
+vector inicial y despues el vector ordenado.
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+public class ejercicios {
+
+    public static void main(String[] args) {
+        numerosPrimos(3);
+    }
+
+    public static void numerosPrimos(int n) {
+        int v[] = new int[n];
+        int b = 1;
+        for (int i = 0; i < v.length; i++) {
+            while (i <= n) {
+                if (b % 2 != 0) {
+                    v[i] = b;
+                    i++;
+                    b++;
+                } else {
+                    b++;
+                }
+            }
+        }
+        for (int i = 0; i < v.length; i++) {
+            System.out.println("" + v[i]);
+        }
+
+    }
+}
